@@ -37,7 +37,7 @@ with tf.Session() as sess:
         total_batch = int(mnist.train.num_examples/batch_size)
         for batch in range(total_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            result = sess.run(optimizer, feed_dict = {x: batch_xs, y: batch_ys})
+            sess.run(optimizer, feed_dict = {x: batch_xs, y: batch_ys})
             avg_cost += sess.run(cost_function, feed_dict = {x: batch_xs, y: batch_ys})/total_batch
 
 print(avg_cost)
